@@ -30,6 +30,8 @@ function addData()
 
     }
     else{
+
+        
        let data=
         {
             name:supName.value,
@@ -40,6 +42,7 @@ function addData()
         localStorage.setItem("dataList",JSON.stringify(userData))
         success.classList.remove('d-none');
         error.classList.add('d-none');
+
 
     }
    
@@ -60,5 +63,63 @@ function isEmailExist()
 }
 // -----------------------------------------------
 
+// ***********Name-Validation*************
+let nameAlert =document.getElementById('nameInvalid');
+signupName.onkeyup=function()
+{
+    var nameRejex=/^[A-Z][a-z]{2,8}$/;
+    if(nameRejex.test(signupName.value))
+    {
+        signupName.classList.add('is-valid');
+        signupName.classList.remove('is-invalid');
+        nameAlert.classList.add('d-none')
 
+    }
+    else{
+        signupName.classList.add('is-invalid');
+        signupName.classList.remove('is-valid');
+        nameAlert.classList.remove('d-none')
+
+    }
+}
+// ***********Email-Validation*************
+
+let emailAlert =document.getElementById('emailInvalid');
+signupEmail.onkeyup=function()
+{
+    var emailRejex=/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
+    if(emailRejex.test(signupEmail.value))
+    {
+        signupEmail.classList.add('is-valid');
+        signupEmail.classList.remove('is-invalid');
+        emailAlert.classList.add('d-none')
+
+    }
+    else{
+        signupEmail.classList.add('is-invalid');
+        signupEmail.classList.remove('is-valid');
+        emailAlert.classList.remove('d-none')
+
+    }
+}
+// ***********Password-Validation*************
+
+let passAlert =document.getElementById('passwordInvalid');
+signupPassword.onkeyup=function()
+{
+    var passRejex=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,15}$/;
+    if(passRejex.test(supPass.value))
+    {
+        supPass.classList.add('is-valid');
+        supPass.classList.remove('is-invalid');
+        passAlert.classList.add('d-none')
+
+    }
+    else{
+        supPass.classList.add('is-invalid');
+        supPass.classList.remove('is-valid');
+        passAlert.classList.remove('d-none')
+
+    }
+}
 

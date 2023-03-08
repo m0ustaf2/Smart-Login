@@ -41,3 +41,45 @@ if(userData[i].email.toLowerCase() == signinEmail.value.toLowerCase() && userDat
       }
 }
 } 
+
+// ***********Email-Validation*************
+
+let emailAlert =document.getElementById('emailInvalid');
+signinEmail.onkeyup=function()
+{
+    var emailRejex=/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
+    if(emailRejex.test(signinEmail.value))
+    {
+        signinEmail.classList.add('is-valid');
+        signinEmail.classList.remove('is-invalid');
+        emailAlert.classList.add('d-none')
+
+    }
+    else{
+        signinEmail.classList.add('is-invalid');
+        signinEmail.classList.remove('is-valid');
+        emailAlert.classList.remove('d-none')
+
+    }
+}
+// ***********Password-Validation*************
+
+let passAlert =document.getElementById('passwordInvalid');
+signinPass.onkeyup=function()
+{
+    var passRejex=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,15}$/;
+    if(passRejex.test(signinPass.value))
+    {
+        signinPass.classList.add('is-valid');
+        signinPass.classList.remove('is-invalid');
+        passAlert.classList.add('d-none')
+
+    }
+    else{
+        signinPass.classList.add('is-invalid');
+        signinPass.classList.remove('is-valid');
+        passAlert.classList.remove('d-none')
+
+    }
+}
+
